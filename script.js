@@ -32,8 +32,8 @@ function ejercicio1() {
  function ejercicio2 (){
   
   // Solicitar al usuario el nombre de ciudades mediante un prompt
-  var ciudades = [];
-  var ciudad;
+  let ciudades = [];
+  let ciudad;
 
   do {
       ciudad = prompt("Ingrese el nombre de una ciudad (o presione Cancelar para finalizar):");
@@ -51,7 +51,7 @@ function ejercicio1() {
   document.write("<h2>Arreglo de ciudades ingresadas:</h2>");
   document.write("<ul>");
 
-  for (var i = 0; i < ciudades.length; i++) {
+  for (const i = 0; i < ciudades.length; i++) {
       document.write("<li>" + ciudades[i] + "</li>");
   }
 
@@ -92,50 +92,42 @@ function ejercicio1() {
       console.log("No hay suficientes ciudades para sustituir Barcelona.");
   }
  }
-//ejercicio3
-function ejercicio3() {
-    // Función para simular el lanzamiento de un dado
+ function ejercicio3() {
     function lanzarDado() {
-        return Math.floor(Math.random() * 6) + 1; // Números entre 1 y 6
+        return Math.floor(Math.random() * 6) + 1;
     }
 
-    // Inicializar un array para contar las sumas
-    const conteoSumas = new Array(11).fill(0); // Índices 2 a 12 representan las sumas posibles
+    const conteoSumas = new Array(11).fill(0);
 
-    // Simular 50 lanzamientos de dos dados
     for (let i = 0; i < 50; i++) {
         let dado1 = lanzarDado();
         let dado2 = lanzarDado();
         let suma = dado1 + dado2;
-
-        // Incrementar el contador para la suma obtenida
         conteoSumas[suma - 2]++;
     }
 
-    // Mostrar los resultados
-    console.log("Resultado de lanzar dos dados 50 veces:");
+    // Mostrar los resultados en el documento HTML
+    const resultadoEjercicio3 = document.getElementById("resultadoEjercicio3");
+    resultadoEjercicio3.innerHTML = "<h3>Resultado de lanzar dos dados 50 veces:</h3>";
+
     for (let j = 2; j <= 12; j++) {
-        console.log("Suma " + j + ": " + conteoSumas[j - 2] + " veces");
+        resultadoEjercicio3.innerHTML += "<p>Suma " + j + ": " + conteoSumas[j - 2] + " veces</p>";
     }
 }
 
-// Llamar a la función ejercicio3 para ejecutar el código
-ejercicio3();
- 
-//ejercicio4 
 function ejercicio4() {
     function determinarParidad(numero) {
         return numero % 2 === 0 ? "El número es par." : "El número es impar.";
     }
 
-    // Ejemplo de uso de la función
     const numeroEjemplo = 7; // Puedes cambiar este número
     const resultado = determinarParidad(numeroEjemplo);
 
-    // Mostrar el resultado por pantalla
-    console.log(resultado);
+    // Mostrar el resultado en el documento HTML
+    const resultadoEjercicio4 = document.getElementById("resultadoEjercicio4");
+    resultadoEjercicio4.innerHTML = "<h3>Resultado de determinar paridad:</h3>";
+    resultadoEjercicio4.innerHTML += "<p>" + resultado + "</p>";
 }
 
-// Llamar a la función ejercicio4 para ejecutar el código
-ejercicio4();
+
 
