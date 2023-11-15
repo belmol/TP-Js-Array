@@ -92,5 +92,50 @@ function ejercicio1() {
       console.log("No hay suficientes ciudades para sustituir Barcelona.");
   }
  }
+//ejercicio3
+function ejercicio3() {
+    // Función para simular el lanzamiento de un dado
+    function lanzarDado() {
+        return Math.floor(Math.random() * 6) + 1; // Números entre 1 y 6
+    }
 
+    // Inicializar un array para contar las sumas
+    const conteoSumas = new Array(11).fill(0); // Índices 2 a 12 representan las sumas posibles
+
+    // Simular 50 lanzamientos de dos dados
+    for (let i = 0; i < 50; i++) {
+        let dado1 = lanzarDado();
+        let dado2 = lanzarDado();
+        let suma = dado1 + dado2;
+
+        // Incrementar el contador para la suma obtenida
+        conteoSumas[suma - 2]++;
+    }
+
+    // Mostrar los resultados
+    console.log("Resultado de lanzar dos dados 50 veces:");
+    for (let j = 2; j <= 12; j++) {
+        console.log("Suma " + j + ": " + conteoSumas[j - 2] + " veces");
+    }
+}
+
+// Llamar a la función ejercicio3 para ejecutar el código
+ejercicio3();
  
+//ejercicio4 
+function ejercicio4() {
+    function determinarParidad(numero) {
+        return numero % 2 === 0 ? "El número es par." : "El número es impar.";
+    }
+
+    // Ejemplo de uso de la función
+    const numeroEjemplo = 7; // Puedes cambiar este número
+    const resultado = determinarParidad(numeroEjemplo);
+
+    // Mostrar el resultado por pantalla
+    console.log(resultado);
+}
+
+// Llamar a la función ejercicio4 para ejecutar el código
+ejercicio4();
+
